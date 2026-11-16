@@ -1,0 +1,51 @@
+{
+  "name": "@clonvo/cli",
+  "version": "1.0.0",
+  "description": "Command line for Clonvo, the AI gateway for agents: sign in from the browser and call web search, scraping, crawling, research and browser tools from your terminal.",
+  "keywords": [
+    "clonvo",
+    "cli",
+    "ai-gateway",
+    "agents",
+    "web-search",
+    "web-scraping",
+    "mcp"
+  ],
+  "homepage": "https://clonvo.com/docs/cli",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clonvodotcom/cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/clonvodotcom/cli/issues",
+    "email": "support@clonvo.com"
+  },
+  "license": "MIT",
+  "author": "Clonvo <support@clonvo.com>",
+  "type": "module",
+  "bin": {
+    "clonvo": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "SECURITY.md",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.build.json && chmod +x dist/cli.js",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
